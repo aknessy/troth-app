@@ -23,7 +23,7 @@ const routes: Routes = [
     CommonModule,
     FormsModule,
     HttpClientModule,
-    RouterModule.forRoot(routes, {enableTracing : false, useHash : true})
+    RouterModule.forRoot(routes, { enableTracing: false, useHash: true, relativeLinkResolution: 'legacy' })
   ],
   exports: [
     RouterModule
