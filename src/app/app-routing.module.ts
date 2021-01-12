@@ -1,6 +1,5 @@
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
 import { AuthComponent } from 'src/app/views/auth/auth.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
@@ -22,7 +21,6 @@ const routes: Routes = [
   imports: [
     CommonModule,
     FormsModule,
-    HttpClientModule,
     RouterModule.forRoot(routes, { enableTracing: false, useHash: true, relativeLinkResolution: 'legacy' })
   ],
   exports: [

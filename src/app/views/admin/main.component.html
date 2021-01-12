@@ -1,24 +1,16 @@
 <div class="main-container p-0 m-0">
     <div class="main-content-wrap">
-        <!-- Left Sidebar -->
         <app-sidebar-left></app-sidebar-left>
-        <!-- Top menu bar-->
         <app-topbar></app-topbar>
-        <!-- content area (contents will be placed here via lazy-loading)-->
         <div class="container">
             <div class="row">
                 <router-outlet></router-outlet> 
             </div>
         </div>
-        <!-- Right sidebar if any-(Consider using angular's cli to create one -->
-        <!-- if you haven't already -->
         <app-sidebar-right></app-sidebar-right>
-        <!-- Page Footer -->
         <app-footer></app-footer>
         
-        <!-- Loading Indicator -->
         <div class="module-loader" *ngIf="moduleLoading">
-            <!-- Style the following classes as you might like -->
             <div class="spinner spinner-bubble spinner-bubble-primary mr-3"></div>
         </div>
 

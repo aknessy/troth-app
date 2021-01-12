@@ -1,4 +1,4 @@
-import { MainComponent } from './main.component';
+import { MainComponent } from './../main.component';
 import { Routes, RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -15,7 +15,7 @@ const routes : Routes = [
     children : [
       {
         path : 'dashboard',
-        loadChildren : () => import('src/app/views/dashboard/dashboard.module').then(m => m.DashboardModule)
+        loadChildren : () => import('./dashboard/dashboard.module').then(m => m.DashboardModule)
       }
     ]
   }
