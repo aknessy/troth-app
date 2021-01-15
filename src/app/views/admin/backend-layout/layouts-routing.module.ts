@@ -1,3 +1,4 @@
+import { AuthGuard } from './../../../services/auth-guard.service';
 import { MainComponent } from './../main.component';
 import { Routes, RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
@@ -10,14 +11,15 @@ const routes : Routes = [
      * this route url. i.e /backend (Use this route only in your auth component
      * after login has been verified.)
      */
-    path : '',
+    path : 'admin',
     component : MainComponent,
     children : [
       {
         path : 'dashboard',
         loadChildren : () => import('./dashboard/dashboard.module').then(m => m.DashboardModule)
       }
-    ]
+    ],
+    canActivate : [AuthGuard]
   }
 ]
 

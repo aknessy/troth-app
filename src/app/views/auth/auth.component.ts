@@ -1,9 +1,9 @@
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from './../../services/auth/auth.service';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
-import { faLockOpen, faUser, faAt } from '@fortawesome/free-solid-svg-icons';
+import { faLock, faUser, faAt, faRedo } from '@fortawesome/free-solid-svg-icons';
 
 
 @Component({
@@ -15,7 +15,7 @@ export class AuthComponent implements OnInit {
   /**
    * Font awesome lock open icon
    */
-  unlockIcon = faLockOpen;
+  unlockIcon = faLock;
 
   /**
    * Font awesom user icon
@@ -26,6 +26,11 @@ export class AuthComponent implements OnInit {
    * Email '@' Icon
    */
   atIcon = faAt;
+
+  /**
+   * Refresh/redo Icon
+   */
+  refreshIcon = faRedo;
 
   /**
    * Login Form
@@ -55,6 +60,7 @@ export class AuthComponent implements OnInit {
     private pageTitle : Title,
     private fb : FormBuilder,
     private router : Router,
+    private route : ActivatedRoute,
     private authService : AuthService
   ) { 
     this.isRequestProcessing = false;
@@ -77,16 +83,18 @@ export class AuthComponent implements OnInit {
    */
   doLogin(){
     this.isRequestProcessing = true;
+    
+    let email = this.loginForm.get('email').value;
+    let password = this.loginForm.get('password').value;
+    let remember = (this.loginForm.get('remember').value == 1 ? true : false);
+    
+    const credentials = {
+      'email' : email,
+      'password' : password,
+      'remember' : remember
+    };
 
-    this.authService.login(this.loginForm.value)
-      .subscribe(result => {
-        if(result)
-          this.router.navigate(['/admin/dashboard']);
-        else{
-          this.isRequestProcessing = false;
-          this.invalidLogin = true;
-        }
-      })
+    console.log(this.authService.login(credentials));
   }
 
 }

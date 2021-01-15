@@ -1,18 +1,27 @@
-<div class="main-container p-0 m-0">
-    <div class="main-content-wrap">
-        <app-sidebar-left></app-sidebar-left>
-        <app-topbar></app-topbar>
-        <div class="container">
+<div class="main-container">
+    <mat-toolbar class="example-header">
+        <button mat-button (click)="sidenav.toggle()">Toggle</button>
+    </mat-toolbar>
+
+    <mat-sidenav-container class="example-container">
+        <mat-sidenav #sidenav mode="side" opened class="example-sidenav"
+                     [fixedInViewport]="options.value.fixed" [fixedTopGap]="options.value.top"
+                     [fixedBottomGap]="options.value.bottom">
+          {{options.value.fixed ? 'Fixed' : 'Non-fixed'}} Sidenav
+        </mat-sidenav>
+
+        <mat-sidenav-content>
             <div class="row">
                 <router-outlet></router-outlet> 
             </div>
-        </div>
-        <app-sidebar-right></app-sidebar-right>
-        <app-footer></app-footer>
-        
-        <div class="module-loader" *ngIf="moduleLoading">
-            <div class="spinner spinner-bubble spinner-bubble-primary mr-3"></div>
-        </div>
 
-    </div>
+            <div class="module-loader" *ngIf="moduleLoading">
+                <div class="spinner spinner-bubble spinner-bubble-primary mr-3"></div>
+            </div>
+        </mat-sidenav-content>
+    </mat-sidenav-container>
+
+    <mat-toolbar class="example-footer">Footer</mat-toolbar>
 </div>
+
+  

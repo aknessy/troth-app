@@ -1,3 +1,4 @@
+import { AuthGuard } from './services/auth-guard.service';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { SharedModule } from '../app/shared/modules/shared/shared.module';
 import { CommonModule } from '@angular/common';
@@ -12,6 +13,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LayoutsModule } from './views/admin/layouts.module';
 import { HttpClientModule } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { AuthService } from './services/auth/auth.service';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     NgbModule
   ],
   providers: [
-    HttpClientModule
+    HttpClientModule,
+    AuthService,
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })

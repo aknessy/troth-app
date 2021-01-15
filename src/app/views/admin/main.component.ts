@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder } from '@angular/forms';
 import { Router, RouteConfigLoadStart, ResolveStart, RouteConfigLoadEnd, ResolveEnd } from '@angular/router';
 
 @Component({
@@ -14,9 +15,21 @@ export class MainComponent implements OnInit {
    */
     moduleLoading : Boolean;
 
+  /**
+   * Form Group
+   */
+  options: FormGroup;
+  
   constructor(
-    private router : Router
-  ) { }
+    private router : Router,
+    private fb : FormBuilder
+  ) {
+    this.options = fb.group({
+      bottom: 0,
+      fixed: false,
+      top: 0
+    });
+   }
 
   ngOnInit(): void {
     this.router.events.subscribe(event => {

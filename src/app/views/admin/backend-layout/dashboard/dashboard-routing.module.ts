@@ -6,16 +6,12 @@ import { CommonModule } from '@angular/common';
 
 const childRoutes = [
   {
-    path : '',
+    path : 'dashboard',
     component : MonitorComponent,
-    // Register an auth guard here if you have created one
-    // e.g canActivate : [guard-name]
   },
   {
     path : 'profile',
     component : ProfileComponent,
-    // consider registering an auth guard here to protect this route
-    // e.g canActivate : [guard-name]
   }
 ]
 

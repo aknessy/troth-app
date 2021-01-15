@@ -16,18 +16,23 @@
                                         <div class="input-group mb-3">
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text">
-                                                    <fa-icon [icon]="unlockIcon"></fa-icon>
+                                                    <fa-icon [icon]="atIcon"></fa-icon>
                                                 </span>
                                             </div>
                                             <input type="text" formControlName="email" class="form-control" placeholder="User Email" autocomplete="off" required>
                                         </div>
-                                        <div class="input-group mb-4">
+                                        <div class="input-group mb-2">
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text">
                                                     <fa-icon [icon]="unlockIcon"></fa-icon>
                                                 </span>
                                             </div>
                                             <input type="password" formControlName="password" class="form-control" placeholder="Password" autocomplete="off" required>
+                                        </div>
+                                        <div class="row mb-2">
+                                            <div class="col">
+                                                <mat-checkbox color="primary" formControlName="remember" value="1">Remember login</mat-checkbox>
+                                            </div>
                                         </div>
                                         <div class="row">
                                             <div class="col">
@@ -36,13 +41,15 @@
                                                 </button>
                                             </div>
                                         </div>
-                                        <section class="mt-2">
-                                            <mat-checkbox color="primary" formControlName="remember" value="1">Remember login</mat-checkbox>
-                                        </section>
+                                        
                                     </form>
                                 </div>
                                 <div class="card-footer text-center">
-                                    <a type="button" class="btn btn-link">Reset password?</a>
+                                    <a type="button" class="btn btn-link">
+                                        <span>
+                                            <fa-icon [icon]="refreshIcon"></fa-icon>
+                                        </span> Reset password?
+                                    </a>
                                 </div>
                             </div>
                         </div>
