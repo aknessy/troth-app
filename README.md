@@ -1,2 +1,2 @@
-# angular-admin-layout
-Defines the structure of an admin back-end running on angular
+# troth-app
+Codebase for the troth-app

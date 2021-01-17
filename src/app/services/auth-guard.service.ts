@@ -1,9 +1,7 @@
 import { Injectable } from '@angular/core';
 import {  
   Router,
-  CanActivate,
-  RouterStateSnapshot ,
-  ActivatedRouteSnapshot } from '@angular/router';
+  CanActivate} from '@angular/router';
 import { AuthService } from './auth/auth.service';
 
 @Injectable({
@@ -17,7 +15,6 @@ export class AuthGuard implements CanActivate {
   ) { }
 
   canActivate(route, state){
-    console.log(this.authService.isLoggedin());return false
     if(this.authService.isLoggedin())
       return true;
     

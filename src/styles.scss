@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400&family=Roboto:ital,wght@0,400;0,500;1,100&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,600;1,400&display=swap');
 /* Importing Bootstrap SCSS file. */
 @import '~bootstrap/scss/bootstrap';
 
@@ -17,8 +17,9 @@ html,body{
 }
 
 body {
-    font-family: 'Roboto', sans-serif; 
-    font-size: 1.1rem
+    font-family: 'Nunito', Arial, Helvetica, sans-serif; 
+    font-size: .9rem;
+    font-weight: normal;
 }
 
 .alert.alert-custom{
@@ -29,5 +30,13 @@ body {
     border-left-color: #155724;}
 .alert.alert-custom.alert-warning{
     border-left-color:#856404}
+.clear-outline{
+    border: 0px none;
+    border-color: transparent;
+    outline: none;}
+.clear-outline:focus,
+.clear-outline:active,
+.clear-outline:visited{
+    outline: none;}
 
 

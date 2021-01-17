@@ -71,8 +71,8 @@ export class AuthComponent implements OnInit {
 
   ngOnInit(): void {
     this.loginForm = this.fb.group({
-      email : new FormControl('', Validators.required),
-      password : new FormControl('', Validators.required),
+      email : new FormControl('', [Validators.required, Validators.email]),
+      password : new FormControl('', [Validators.required, Validators.minLength(8)]),
       remember : new FormControl('')
     })
   }
@@ -93,8 +93,17 @@ export class AuthComponent implements OnInit {
       'password' : password,
       'remember' : remember
     };
-
-    console.log(this.authService.login(credentials));
+    
+    this.authService.login(credentials)
+      .subscribe((response) => {
+        if(response){
+          let returnUrl = this.route.snapshot.queryParamMap.get('returnUrl');
+          this.router.navigate([returnUrl || '/admin/dashboard'])
+        } 
+      }, (error) => {
+        this.invalidLogin = true;
+        this.isRequestProcessing = false;
+      })
   }
 
 }

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { Router, RouteConfigLoadStart, ResolveStart, RouteConfigLoadEnd, ResolveEnd } from '@angular/router';
 
+
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
@@ -13,12 +14,17 @@ export class MainComponent implements OnInit {
    * or some other animation.
    * @var Boolean
    */
-    moduleLoading : Boolean;
+		moduleLoading : Boolean;
 
   /**
    * Form Group
    */
-  options: FormGroup;
+	options: FormGroup;
+	
+	/**
+	 * @var boolean
+	 */
+	collapsed = true;
   
   constructor(
     private router : Router,

@@ -7,6 +7,10 @@ import { map } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class AuthService {
+  /**
+   * Store login response
+   */
+  results : any;
 
   /**
    * 
@@ -20,21 +24,23 @@ export class AuthService {
   /**
    * Attempts to login the user with the supplied credentials
    * @param credentials
-   * @return void
+   * @return boolean
    **/
   login(credentials){
-    return this.http.post('http://127.0.0.1:8000/api/auth/login', credentials)
-      .pipe(
-        map(response => {
-            let result : any = response;
+     
+       return this.http.post('http://127.0.0.1:8000/api/auth/login', credentials)
+         .pipe(
+           map((response) => {
+             if(response){
+               let result = JSON.stringify(response)
+               localStorage.setItem('loggedInUser', result);
 
-            if(result && result.access_token){
-              localStorage.setItem('loggedInUser', JSON.stringify(result));
-              return true;
-            }
+               return true;
+             }
 
-            return false;
-        })
+             return false;
+           }
+        )
       )
   }
 
@@ -61,14 +67,20 @@ export class AuthService {
    */
   isLoggedin(){
     let loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
-    let expiresAt = (loggedInUser.expires_at ? loggedInUser.expires_at : undefined);
-    let date = new Date();
-
-    if(expiresAt != undefined){
-      if(date < expiresAt)
-        return true;
+   
+    if(loggedInUser){
+      let expiresAt = (loggedInUser.expires_at ? loggedInUser.expires_at : undefined);
+  
+      if(expiresAt != undefined){
+        let now = new Date();
+        let expiry = new Date(expiresAt);
+        now.setHours(0,0,0,0);
+  
+        if(expiry > now)
+          return true
+      }
     }
-
+  
     return false;
   }
 
@@ -78,7 +90,7 @@ export class AuthService {
    * @return string
    */
   accessToken(){
-    return JSON.parse(localStorage.getItem('loggedInUser')).access_token
+    return (JSON.parse(localStorage.getItem('loggedInUser')).access_token)
   }
 
   /**
@@ -91,6 +103,17 @@ export class AuthService {
       JSON.parse(localStorage.getItem('loggedInUser')).user 
       ? JSON.parse(localStorage.getItem('loggedInUser')).user['usertype'] : 
       null);
+  }
+
+  /**
+   * Current User
+   * @param None
+   * @return any
+   */
+  currentUser(){
+    return (JSON.parse(localStorage.getItem('loggedInUser')).user 
+    ? JSON.parse(localStorage.getItem('loggedInUser')).user
+    : null);
   }
 
 }
