@@ -1,3 +1,7 @@
+.mat-drawer.mat-drawer-side{
+    box-shadow: rgba(0, 0, 0, 0.27) 0px 1px 2px 1px;
+}
+
 .main-container{
     height: 100%;
     float: left;
@@ -7,38 +11,35 @@
     position: relative;
     padding: 0 0 0 240px;
 }
-.module-loader{
-    position: absolute;
-    right: 10px;
-    top: 10px;
-}
-.example-container {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding-top: 70px;
-  background: rgb(15, 23, 36);
-}
 
-.example-header {
-    height: 69px;
-    display: flex;
-    -webkit-box-align: center;
-    align-items: center;
-    position: fixed;
-    top: 0px;
-    left: 0px;
-    box-shadow: rgba(0, 0, 0, 0.27) 0px 2px 3px 2px;
-    background-color: rgb(33, 44, 61);
-    z-index: 999999;
-    font-family: "Nunito", sans-serif;}
+.example-container {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding-top: 70px;
+    background: rgb(15, 23, 36);
+  }
+  
+  .example-header {
+      height: 69px;
+      display: flex;
+      -webkit-box-align: center;
+      align-items: center;
+      position: fixed;
+      top: 0px;
+      left: 0px;
+      box-shadow: rgba(0, 0, 0, 0.27) 0px 2px 3px 2px;
+      background-color: rgb(33, 44, 61);
+      z-index: 999999;
+      font-family: "Nunito", sans-serif;
+  }
 
 .sidenav{
     background-color: rgb(29, 38, 54);
     padding: 12px;
-    width: 190px;
+    width: 200px;
     flex: 0 0 auto;
     font-size: 14px;
     top: 69px;

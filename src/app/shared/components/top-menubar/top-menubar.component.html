@@ -3,11 +3,11 @@
         <img src="/assets/imgs/dots-admin.png" alt="Logo">
     </div>
     <div class="topbar">
-        <button type="button" mat-flat-button color="primary" class="clear-outline">
+        <button type="button" class="btn btn-primary clear-outline">
             <fa-icon [icon]="justifyIcon"></fa-icon>
         </button>
         <div class="navbar-nav-interim">
-            <a routerLink="/admin/dashboard" routerLinkActive="active">Dashboard</a>
+            <a routerLink="/admin/currencies" routerLinkActive="active">Currencies</a>
             <a routerLink="/admin/payments" routerLinkActive="active">Payments</a>
             <a routerLink="/admin/global-setting" routerLinkActive="active">Platform settings</a>
         </div>
@@ -27,12 +27,13 @@
                 <div class="dropdown-header text-center">
                     <strong>Account</strong>
                 </div>
-                <a ngbDropdownItem href="#" (click)="$event.preventDefault()"><fa-icon [icon]="userIcon"></fa-icon> Profile</a>
-                <a ngbDropdownItem href="#" (click)="$event.preventDefault()">
+                <a ngbDropdownItem routerLink="/admin/user"><fa-icon [icon]="userIcon"></fa-icon> Profile</a>
+                <a ngbDropdownItem routerLink="/admin/messages">
                     <fa-icon [icon]="envelopeIcon"></fa-icon> Messages 
                     <span class="badge badge-success">42</span>
                 </a>
-                <a ngbDropdownItem href="#" (click)="$event.preventDefault()"><fa-icon [icon]="settingsIcon"></fa-icon> Settings</a>
+                <a ngbDropdownItem routerLink="/admin/user-settings"><fa-icon [icon]="settingsIcon"></fa-icon> Settings</a>
+                <a type="button" ngbDropdownItem (click)="logout()"><fa-icon [icon]="logoutIcon"></fa-icon> Logout</a>
             </div>
         </li>
     </ul>

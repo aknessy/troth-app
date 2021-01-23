@@ -4,6 +4,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { MonitorComponent } from './monitor/monitor.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { MatToolbarModule } from '@angular/material/toolbar';
 
 @NgModule({
   declarations: [
@@ -12,6 +13,7 @@ import { CommonModule } from '@angular/common';
   ],
   imports: [
     CommonModule,
+    MatToolbarModule,
     DashboardRoutingModule
   ]
 })

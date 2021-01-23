@@ -1,3 +1,36 @@
 <div class="sidebar-left">
-    <div>This is the left sidebar</div>
+    <perfect-scrollbar class="scrollbar">
+        <ul class="sidebar-nav">
+            <ng-container *ngFor="let item of navItems; let i = index;">
+                <li *ngIf="item.title" class="items-title">
+                    {{ item.name }}
+                </li>
+                <li [id]="i" *ngIf="!item.title" class="item" [ngClass]="{'open' : isMenuOpen}">
+                    <ng-container *ngIf="item.url">
+                        <a routerLink="/admin/{{ item.url }}" routerLinkActive="active" class="items-link">
+                            <i class="icofont-{{ item.icon }} icofont-1x icon"></i> {{ item.name | titlecase }}
+                        </a>
+                    </ng-container>
+                    <ng-container *ngIf="!item.url && item.children">
+                        <a href="#" routerLinkActive="active" class="items-link" (click)="menuOpened($event)">
+                            <i class="icofont-{{ item.icon }} icofont-1x icon"></i> {{ item.name | titlecase }}
+                            <span class="item-drop-icon">
+                                <i class="icofont-curved-right"></i>
+                            </span>
+                        </a>
+                        <ul class="menu-dropdown">
+                            <ng-container *ngFor="let child of item.children">
+                                <li>
+                                    <a routerLink="/admin/{{ child.url }}" routerLinkActive="router-link-active">
+                                        <i class="icofont-{{ child.icon }} icon"></i>{{ child.name | titlecase }}
+                                    </a>
+                                </li>
+                            </ng-container>
+                        </ul>
+                    </ng-container>
+                </li>
+            </ng-container>
+            <li>b</li>
+        </ul>
+    </perfect-scrollbar>
 </div>

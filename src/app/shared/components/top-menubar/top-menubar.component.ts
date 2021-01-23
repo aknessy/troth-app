@@ -1,5 +1,7 @@
+import { Router } from '@angular/router';
+import { AuthService } from '../../../services/auth/auth.service';
 import { Component, OnInit } from '@angular/core';
-import { faAlignJustify, faEnvelopeSquare, faUser, faCogs, faBell } from '@fortawesome/free-solid-svg-icons'
+import { faAlignJustify, faEnvelopeSquare, faUser, faCogs, faBell, faDoorOpen } from '@fortawesome/free-solid-svg-icons'
 
 @Component({
   selector: 'top-menubar',
@@ -31,10 +33,34 @@ export class TopMenubarComponent implements OnInit {
 	 * Font awesome bell icon
 	 */
   bellIcon = faBell;
+
+  /**
+   * Logout Icon
+   */
+  logoutIcon = faDoorOpen;
+
+  /**
+   * Current user's access token
+   * @var string
+   */
+  accessToken : string;
   
-  constructor() { }
+  /**
+   * 
+   * @param authService 
+   */
+  constructor(
+	private authService : AuthService
+  ){
+	  this.accessToken = this.authService.accessToken();
+  }
 
   ngOnInit(): void {
+  
+  }
+
+  logout(){
+	  this.authService.logout(this.accessToken);
   }
 
 }

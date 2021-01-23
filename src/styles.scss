@@ -1,6 +1,13 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,600;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,600;1,400&&display=swap');
+
 /* Importing Bootstrap SCSS file. */
 @import '~bootstrap/scss/bootstrap';
+
+/* Perfect scrollbar stylesheet file */
+@import '~perfect-scrollbar/css/perfect-scrollbar.css';
+
+/** Import Icofont stylesheet **/
+@import './assets/css/icofont.min.css';
 
 /* You can add global styles to this file, and also import other style files */
 html,body{
@@ -39,4 +46,15 @@ body {
 .clear-outline:visited{
     outline: none;}
 
+.scrollbar{
+    position: relative;
+    width: 100%;
+    height: 600px;
+}
+
+.module-loader{
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
 

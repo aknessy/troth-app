@@ -1,9 +1,105 @@
 .sidebar-left{
-    width: 240px;
-    height: 100%;
-    position: fixed;
-    left: 0;
-    background-color: white;
-    padding: 0;
-    text-align: center;
+    display: flex;
+    height: auto;
 }
+
+.sidebar-left .sidebar-nav{
+    flex: 0 1 auto;
+    padding: 1.4em 0em ;
+    width: 100%;
+}
+
+.sidebar-left .sidebar-nav li{
+    list-style: none;
+}
+
+.sidebar-left .sidebar-nav li .items-link{
+    position: relative;
+    padding: .4rem .7rem .4rem 0;
+    border-right: 2px solid transparent;
+    display: flex;
+    cursor: pointer;
+}
+
+.sidebar-left .sidebar-nav li .items-link,
+.sidebar-left .sidebar-nav .items-title{
+    padding: .65rem;
+    color: rgb(146, 171, 207)
+}
+
+.sidebar-left .sidebar-nav li .items-link.no-follow{
+    pointer-events: none;
+}
+
+.sidebar-left .sidebar-nav li .items-link:hover,
+.sidebar-left .sidebar-nav li a.active,
+.sidebar-left .sidebar-nav .item.open .items-link{
+    background-color: #17202d;
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px;
+    color: #11ece5;
+    text-decoration: none;
+}
+
+.sidebar-left .sidebar-nav li .items-link .icon{
+    margin-right: 10px;
+    font-size: 22px;
+}
+
+.sidebar-left .sidebar-nav .items-title{
+    padding: .75rem 1.1rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: #e7edf7 !important;
+    font-size: 12px;
+}
+
+.sidebar-left .sidebar-nav .item{
+    padding: .72rem 0 0 1.4rem;
+}
+
+.sidebar-left .sidebar-nav li a.active{
+    border-right-color: #11ece5;
+}
+
+.sidebar-left .sidebar-nav li .items-link .item-drop-icon{
+    position: absolute;
+    left: auto;
+    right: 5px;
+    top: auto;
+}
+
+.sidebar-left .sidebar-nav .item .menu-dropdown{
+    display: none;
+    margin: 0;
+    padding: 0 0 0 30px;
+    border-right: 2px solid transparent;
+}
+
+.sidebar-left .sidebar-nav .item.open .menu-dropdown{
+    display: block;
+    border-right-color: #11ece5;
+}
+
+.sidebar-left .sidebar-nav .item .menu-dropdown li{
+    list-style-type: none;
+    padding: .64rem 0 .64rem .2rem;
+}
+
+.sidebar-left .sidebar-nav .item li a{
+    display: block;
+    color: rgb(107, 130, 161)
+}
+
+.sidebar-left .sidebar-nav .item li a.router-link-active,
+.sidebar-left .sidebar-nav .item li a:hover{
+    color: #0dc2bc;
+    text-decoration: none;
+}
+
+.sidebar-left .sidebar-nav .item li a > .icon{
+    margin-right: 5px;
+}
+
+
+

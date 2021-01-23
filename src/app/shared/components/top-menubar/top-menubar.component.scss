@@ -1,8 +1,8 @@
 .content{
     display: flex;
-    padding-left: 190px;
+    left: 0;
+    padding-left: 200px;
     padding-right: 20px;
-    width: 100%;
 }
 
 .content .logo{
@@ -83,12 +83,14 @@
 
 .nav.navbar-nav .nav-item .dropdown-menu{
     padding-top: 0em;
+    padding-bottom: 0em;
     background-color: #17202d;
     border: 1px solid #101823;
 }
 
 .nav.navbar-nav .nav-item .dropdown-menu .dropdown-header{
-    background-color:  rgb(18, 25, 36);
+    background-color: rgb(36, 54, 78);
+    background-image: linear-gradient(to right, rgba(13, 230, 255, 0.15) 0%, rgba(201, 189, 174, 0) 25%);
     color: #e7edf7;
     padding: 0.1em 1.5em;
 }

@@ -6,7 +6,7 @@ import { CommonModule } from '@angular/common';
 
 const childRoutes = [
   {
-    path : 'dashboard',
+    path : '',
     component : MonitorComponent,
   },
   {
