@@ -5,7 +5,7 @@
                 <li *ngIf="item.title" class="items-title">
                     {{ item.name }}
                 </li>
-                <li [id]="i" *ngIf="!item.title" class="item" [ngClass]="{'open' : isMenuOpen}">
+                <li [id]="i" *ngIf="!item.title" class="item" routerLinkActive="open" [ngClass]="{'open' : isMenuOpen}">
                     <ng-container *ngIf="item.url">
                         <a routerLink="/admin/{{ item.url }}" routerLinkActive="active" class="items-link">
                             <i class="icofont-{{ item.icon }} icofont-1x icon"></i> {{ item.name | titlecase }}

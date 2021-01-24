@@ -1,0 +1,83 @@
+<div class="shop-list-container">
+    <mat-toolbar class="toolbar">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 p-0">
+                    <ol class="breadcrumb m-0">
+                        <li class="breadcrumb-item">
+                            <a routerLink="admin/Dashboard">Dashboard</a>
+                        </li>
+                        <li class="breadcrumb-item active" aria-current="page">Shop list</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </mat-toolbar>
+
+    <section class="shop-list-main mt-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-5 col-sm-6">
+                    <input [(ngModel)]="queryString" type="text" value="" class="form-control form-control-sm input-control" placeholder="Find a shop by name">
+                </div>
+                <div class="offset-lg-3 col-lg-4 offset-sm-2 col-sm-4">
+                    <ul class="nav navbar-nav pull-right m-0 p-0">
+                        <li class="nav-item">
+                            <a routerLink="admin/shop/create" class="nav-link"><i class="icofont-plus-circle"></i> Create shop</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                   <div class="content-body mt-4">
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-striped">
+                                <thead>
+                                    <th>S/No.</th>
+                                    <th></th>
+                                    <th>Name</th>
+                                    <th>Category</th>
+                                    <th>Description</th>
+                                    <th>Published?</th>
+                                    <th>Action(s)</th>
+                                </thead>
+                                <tbody>
+                                    <ng-container *ngFor="let item of shopList; let i = index | searchFilter : queryString">
+                                        <tr>
+                                            <td>{{ i + 1 }}.</td>
+                                            <td></td>
+                                            <td>{{ item.name | titlecase }}
+                                            <td>{{ item.category }}</td>
+                                            <td>{{ item.description | ellipsis:80 }}</td>
+                                            <td>
+                                                <ng-container *ngIf="item.published == 1">
+                                                    <span class="badge badge-success">Published</span>
+                                                </ng-container>
+                                                <ng-container *ngIf="item.published == 0">
+                                                    <span class="badge badge-warning">Not publised</span>
+                                                </ng-container>
+                                            </td>
+                                            <td>
+                                                <a [routerLink]="['/admin/shop/update', item.id]" class="btn btn-outline-primary btn-sm">
+                                                    <i class="icofont-pencil-alt-5"></i>
+                                                </a>
+                                                <a href="#" (click)="deactivateShop(item.id)" class="btn btn-outline-secondary btn-sm ml-1">
+                                                    <i class="icofont-ban"></i>
+                                                </a>
+                                                <a href="#" (click)="deleteShop(item.id)" class="btn btn-outline-danger btn-sm ml-1">
+                                                    <i class="icofont-garbage"></i>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    </ng-container>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div> 
+                </div>
+                
+            </div>
+        </div>
+    </section>
+</div>

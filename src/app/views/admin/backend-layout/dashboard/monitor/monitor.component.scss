@@ -1,9 +1,3 @@
-.monitor-container{
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-}
-
 .monitor-main{
     position: relative;
 }
@@ -74,28 +68,6 @@
     padding: 1rem .8rem;
 }
 
-.breadcrumb{
-    background-color: transparent;  
-    float: left;
-    padding: 0.6rem 1rem                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
-}
-
-.breadcrumb li{
-    font-size: 1.2rem
-}
-
-.breadcrumb li a,
-.activity-toggle li a{
-    color: #92abcf;
-}
-
-.breadcrumb li a:link,
-.breadcrumb li a:visited,
-.breadcrumb li a:hover{
-    text-decoration: none;
-    color: #e7edf7;
-}
-
 .activity-toggle{
     float: right;
     margin: 0;
@@ -107,6 +79,7 @@
 }
 
 .activity-toggle li a{
+    color: #92abcf;
     font-size: 16px;
     border: 1px solid transparent;
 }

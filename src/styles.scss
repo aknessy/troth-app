@@ -58,3 +58,52 @@ body {
     top: 10px;
 }
 
+.main-container{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.breadcrumb{
+    background-color: transparent;  
+    float: left;
+    padding: 0.6rem 1rem                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
+}
+
+.breadcrumb .breadcrumb-item{
+    font-size: 1.2rem
+}
+
+.breadcrumb .breadcrumb-item a{
+    cursor: pointer;
+    color: #92abcf;
+}
+
+.breadcrumb li a:link,
+.breadcrumb li a:visited,
+.breadcrumb li a:hover,
+.breadcrumb .breadcrumb-item a:visited,
+.breadcrumb .breadcrumb-item a:hover{
+    text-decoration: none;
+    color: #e7edf7;
+}
+
+.content-body{
+    display: flex;
+    background-color:#1d2636;
+    border: 1px solid #18202e;
+    padding: 1.45rem;
+}
+
+.table{
+    color:  #849ec2;
+}
+
+.table-bordered th, .table-bordered td {
+    border: 1px solid #161e2b;
+}
+
+.table thead th{  
+    text-transform: uppercase;
+    border-bottom-color: #18202e;
+}

@@ -1,0 +1,35 @@
+.shop-list-main{
+    position: relative;
+}
+
+.input-toolbar-wrapper{
+  position: relative;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  width: 100%;
+  float: left;
+  height: 36px;
+  padding-right: 3rem }
+
+.toolbar{
+    background-color: rgb(29, 38, 54);
+    background-image: linear-gradient(to right, rgba(13, 230, 255, 0.15) 0%, rgba(201, 189, 174, 0) 25%);
+    position: sticky;
+    display: flex;
+    width: 100%;
+    top: -2px;
+    font-family: "Nunito", sans-serif;
+    padding: 1rem .8rem;
+}
+
+.input-control {
+    background-color: rgb(15, 19, 27);
+    border: 1px solid rgb(12, 15, 22);
+    outline: none;
+    font-family: "Nunito", sans-serif;
+    padding: 1rem .8rem;
+}
+.input-control:focus{
+    outline: none;
+    box-shadow: none;
+}

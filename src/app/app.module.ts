@@ -8,12 +8,12 @@ import { AuthComponent } from 'src/app/views/auth/auth.component';
 import { ErrorPageComponent } from './views/error-page/error-page.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { LayoutsModule } from './views/admin/layouts.module';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthService } from './services/auth/auth.service';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
 import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
+import { LayoutsModule } from './views/admin/layouts.module';
 
 @NgModule({
   declarations: [
@@ -26,10 +26,10 @@ import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
     BrowserAnimationsModule,
     HttpClientModule,
     ReactiveFormsModule,
-    LayoutsModule,
     SharedModule,
     FontAwesomeModule,
     PerfectScrollbarModule,
+    LayoutsModule,
     AppRoutingModule
   ],
   providers: [

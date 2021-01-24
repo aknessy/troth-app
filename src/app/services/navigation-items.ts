@@ -73,7 +73,7 @@ export const NavigationItems : NavigationInterface[] = [
         children : [
             {
                 name : 'shops',
-                url : 'shops-list',
+                url : 'shop/shops-list',
                 icon : 'list'
             },
             {
@@ -89,7 +89,7 @@ export const NavigationItems : NavigationInterface[] = [
         children : [
             {
                 name : 'apartments',
-                url : 'apartment-lists',
+                url : 'apartment/apartments',
                 icon : 'map-pins'
             },
             {
