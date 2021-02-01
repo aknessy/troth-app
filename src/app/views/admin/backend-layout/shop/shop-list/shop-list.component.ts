@@ -5,7 +5,7 @@ import { Title } from '@angular/platform-browser';
 import { ShopService } from 'src/app/services/shop/shop.service';
 
 @Component({
-  selector: 'app-shop-list',
+  selector: 'shop-list',
   templateUrl: './shop-list.component.html',
   styleUrls: ['./shop-list.component.scss']
 })
@@ -40,7 +40,13 @@ export class ShopListComponent implements OnInit {
    */
   shopList : any;
 
+  /**
+   * Module loading
+   * @var boolean
+   */
+  moduleLoading : boolean;
 
+  /** */
   constructor(
     private title : Title,
     private shopService : ShopService,
@@ -51,6 +57,8 @@ export class ShopListComponent implements OnInit {
     this.accessToken = this.authService.accessToken();
     this.userType = this.authService.userType();
 
+    this.moduleLoading = true;
+
     if(this.userType !== 'admin')
       this.router.navigate(['admin/dashboard']);
    }
@@ -60,6 +68,7 @@ export class ShopListComponent implements OnInit {
       .subscribe((result) => {
         if(result){
           this.shopList = JSON.parse(result);
+          this.moduleLoading = false;
         }
       })
   }
@@ -69,7 +78,7 @@ export class ShopListComponent implements OnInit {
   }
 
   deactivateShop(shopId){
-    
+
   }
 
 }

@@ -21,11 +21,9 @@
                     <input [(ngModel)]="queryString" type="text" value="" class="form-control form-control-sm input-control" placeholder="Find a shop by name">
                 </div>
                 <div class="offset-lg-3 col-lg-4 offset-sm-2 col-sm-4">
-                    <ul class="nav navbar-nav pull-right m-0 p-0">
-                        <li class="nav-item">
-                            <a routerLink="admin/shop/create" class="nav-link"><i class="icofont-plus-circle"></i> Create shop</a>
-                        </li>
-                    </ul>
+                    <a routerLink="admin/shop/create" class="btn btn-sm btn-secondary" style="float: right;">
+                        <i class="icofont-plus-circle"></i> Create shop
+                    </a>
                 </div>
             </div>
             <div class="row">
@@ -43,7 +41,7 @@
                                     <th>Action(s)</th>
                                 </thead>
                                 <tbody>
-                                    <ng-container *ngFor="let item of shopList; let i = index | searchFilter : queryString">
+                                    <ng-container *ngFor="let item of shopList | searchFilter : queryString;  let i = index">
                                         <tr>
                                             <td>{{ i + 1 }}.</td>
                                             <td></td>
@@ -59,7 +57,7 @@
                                                 </ng-container>
                                             </td>
                                             <td>
-                                                <a [routerLink]="['/admin/shop/update', item.id]" class="btn btn-outline-primary btn-sm">
+                                                <a [routerLink]="['/admin/shop/edit-shop', item.id]" class="btn btn-outline-primary btn-sm">
                                                     <i class="icofont-pencil-alt-5"></i>
                                                 </a>
                                                 <a href="#" (click)="deactivateShop(item.id)" class="btn btn-outline-secondary btn-sm ml-1">
@@ -78,6 +76,10 @@
                 </div>
                 
             </div>
+        </div>
+
+        <div *ngIf="moduleLoading" class="module-loading-container">
+            <module-loading></module-loading>
         </div>
     </section>
 </div>

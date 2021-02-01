@@ -1,1 +1,232 @@
-<p>edit-shop works!</p>
+<div class="shop-list-container">
+    <mat-toolbar class="toolbar">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 p-0">
+                    <ol class="breadcrumb m-0">
+                        <li class="breadcrumb-item">
+                            <a routerLink="/admin/dashboard">Dashboard</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a routerLink="/admin/shop/shops-list">Shops list</a>
+                        </li>
+                        <li class="breadcrumb-item active" aria-current="page">Editor view</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </mat-toolbar>
+
+    <section class="relative mt-4">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="alert alert-info alert-custom mb-0">
+                        <p class="mb-0">The editor/view permits you to view information about the current selection and allows you to update previously saved information. The current view consists of the Information panel, location of the shop or apartment, information for the owner of this shop/apartment as well as their subscriptions.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="shop-view-wrapper view-with-bg bg-automotives">
+                        <h2 class="jumbo-header">Editor/Viewer for {{ shopInfo.name }}</h2>
+                        <p>{{ shopInfo.description }}.</p>
+
+                        <div class="card-wrapper">
+                            <div class="card-content">
+                                <div class="card-item">
+                                    <div class="item-number">{{ shopInfo.ratings | number }}</div>
+                                    <div class="item-icon"><i class="icofont-4x icofont-star"></i></div>
+                                </div>
+                                <div class="card-footer">
+                                    <p class="text">Customer related ratings</p>
+                                </div>
+                            </div>
+                            <div class="card-content ml-3">
+                                <div class="card-item">
+                                    <div class="item-number">
+                                        <ng-container *ngIf="shopProductsCount > 10">
+                                            {{ shopProductsCount }}
+                                        </ng-container>
+                                        <ng-container *ngIf="shopProductsCount > 0 && shopProductsCount < 10">
+                                            {{ '0' + shopProductsCount }}
+                                        </ng-container>
+                                        <ng-container *ngIf="shopProductsCount == 0">0</ng-container>
+                                    </div>
+                                    <div class="item-icon"><i class="icofont-4x icofont-bucket2"></i></div>
+                                </div>
+                                <div class="card-footer">
+                                    <p class="text">Total products uploaded</p>
+                                </div>
+                            </div>
+                            <div class="card-content ml-3">
+                                <div class="card-item">
+                                    <div class="item-number">66</div>
+                                    <div class="item-icon"><i class="icofont-4x icofont-heart-alt"></i></div>
+                                </div>
+                                <div class="card-footer">
+                                    <p class="text">Customer favourite</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 col-sm-7">
+                    <div class="editor-form">
+                        <div class="panel">
+                            <div class="panel-heading">
+                                <h3 class="m-0 panel-title">Information editor</h3>
+                            </div>
+                            <div class="panel-content">
+                                <form [formGroup]="shopInfoForm" (ngSubmit)="updateShopInfo()" class="form form-horizontal">
+                                    <div class="row">
+                                        <div class="col">
+                                            <div class="form-group">
+                                               <label class="control-label mb-0" for="name">
+                                                    Shop Name<span class="sr-only">Name</span>
+                                                </label>
+                                                <input type="text" formControlName="name" class="form-control input-control" value=""> 
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <label class="control-label mb-0" for="state">
+                                                    State located<span class="sr-only">State located</span>                                                    
+                                                </label>
+                                                <select formControlName="state" class="form-control input-control" (change)="getCities($event)">
+                                                    <option *ngFor="let o of origins" value="{{ o.code }}">{{ o.name }}</option>                                                   
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <label class="control-label mb-0" for="city">
+                                                    City<span class="sr-only">City</span>                                                    
+                                                </label>
+                                                <select formControlName="city" class="form-control input-control">
+                                                    <ng-container *ngIf="!cities">
+                                                        <option value="">Select city</option>  
+                                                    </ng-container>
+                                                    <ng-container *ngIf="cities">
+                                                        <option *ngFor="let c of cities" [value]="c">{{ c }}</option>
+                                                    </ng-container>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-5">
+                                            <div class="form-group">
+                                                <label class="control-label mb-0" for="address">
+                                                    Address<span class="sr-only">Address</span>
+                                                </label>
+                                                <input type="text" formControlName="address" class="form-control input-control" value="">  
+                                            </div>                                            
+                                        </div>
+                                        <div class="col-sm-7">
+                                            <div class="form-group">
+                                                <label class="control-label mb-0" for="description">
+                                                    Description<span class="sr-only">Description</span>
+                                                </label>
+                                                <input type="text" formControlName="description" class="form-control input-control">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <label class="control-label mb-0" for="longitude">
+                                                    Longitude<span class="sr-only">Longitude</span>
+                                                </label>
+                                                <input type="number" formControlName="longitude" class="form-control input-control" value="">
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <label class="control-label mb-0" for="latitude">
+                                                    Latitude<span class="sr-only">Latitude</span>
+                                                </label>
+                                                <input type="number" formControlName="latitude" class="form-control input-control" value="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col">
+                                            <fieldset class="fieldset">
+                                                <legend class="mb-0">Shop Configuration</legend>
+                                                <div class="alert alert-info alert-custom">
+                                                    <p>The following configuration exists for the current shop</p>
+                                                </div>
+
+                                                <div formArrayName="options">
+                                                    <div *ngFor="let field of formFields; let i = index;" [formGroupName]="i" class="row">
+                                                        <ng-container *ngIf="dbConfig[i].config == field">
+                                                            <div [ngSwitch="dbConfig[i].type"]>
+                                                                <div *ngSwitchCase="'option'" class="col-sm-6">
+                                                                    <div class="form-group">
+                                                                        <div class="row m-0">
+                                                                            <label class="control-label mb-0" for="field">
+                                                                                {{ (dbConfig[i].config).replace('_' : ' ') | titlecase }}
+                                                                                <span class="sr-only">{{ dbConfig[i].config }}</span>
+                                                                            </label>
+                                                                            <select class="form-control input-control" [formControlName]="field" required>
+                                                                                <option *ngFor="let option of dbConfig[i].availableOptions" value="option">
+                                                                                    {{ option }}
+                                                                                </option>
+                                                                            </select>
+                                                                        </div>
+                                                                        <p class="m-0 p-0">({{ dbConfig[i].description }})</small></p><small>
+                                                                    </div>
+                                                                </div>
+                                                                <div *ngSwitchCase="'text'" class="col-sm-6">
+                                                                    <div class="form-group">
+                                                                        <div class="row m-0">
+                                                                            <label class=="control-label mb-0">
+                                                                                {{ (dbConfig[i].config).replace('_' : ' ') }}
+                                                                            </label> 
+                                                                            <input type="text" [formControlName]="field" class="form-control input-control" required>
+                                                                        </div>
+                                                                        <p class="m-0 p-0">({{ dbConfig[i].description }})</small></p><small>
+                                                                    </div>
+                                                                </div>
+                                                                <div *ngSwitchCase="'check'" class="col">
+                                                                    <div class="form-group">
+                                                                        <mat-checkbox class="check-margin" color="primary" [value]="dbConfig[i].value">
+                                                                            <span>{{ (dbConfig[i].config).replace('_',' ') }}</span>&nbsp;
+                                                                            ({{ dbConfig[i].description }})
+                                                                        </mat-checkbox>
+                                                                    </div>
+                                                                </div>
+                                                                <div *ngSwitchCase="'number'" class="col">
+                                                                    <div class="form-group">
+                                                                        <label class="control-label m-0">
+                                                                            {{ (dbConfig[i].config).replace('_', ' ') }}
+                                                                            <span class="sr-only">{{ (dbConfig[i].config).replace('_', ' ') }}</span>
+                                                                        </label>
+                                                                        <input type="number" [formControlName]="field" class="form-control input-control" required>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </ng-container>
+                                                    </div>
+                                                </div>
+                                            </fieldset>
+                                        </div>
+                                        
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div *ngIf="moduleLoading" class="module-loading-container">
+            <module-loading></module-loading>
+        </div>
+    </section>
+</div>

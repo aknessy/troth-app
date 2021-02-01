@@ -29,18 +29,63 @@ export class ShopService {
   }
 
   /**
-   * Fetch shop owner using the id of the shop provided
+   * Fetch the shop information for the shop with the given shopId.
+   * @param shopId : number
+   * @param accessToken : string
+   * @returns Observable
+   */
+  getSingle(shopId : number, accessToken : string){
+    return this.http.get('http://127.0.0.1:8000/api/shop/' + shopId, { headers : {'Authorization' : 'Bearer ' + accessToken}})
+      .pipe(
+        map((response) => {
+          return JSON.stringify(response)
+        })
+      )
+  }
+
+  /**
+   * Fetch shop owner using the id of the user provided.
    * @param shopId : number
    * @param accessToken : string
    * @return Observable
    */
-  getShopOwner(shopId : number, accessToken : string){
-    return this.http.get('http://127.0.0.1:8000/shop/owner/' + shopId, { headers : { 'Authorization' : 'Bearer ' + accessToken}})
+  getShopOwner(userId : number, accessToken : string){
+    return this.http.get('http://127.0.0.1:8000/api/shop/owner/' + userId, { headers : { 'Authorization' : 'Bearer ' + accessToken}})
       .pipe(
         map((response) => {
           return JSON.stringify(response)
         } )
       )
+  }
+
+  /**
+   * Get all the products for the shop with the given shopId
+   * @param shopId : number
+   * @param accessToken : string
+   * @return Observable
+   */
+  getShopProducts(shopId : number, accessToken : string){
+    return this.http.get('http://127.0.0.1:8000/api/shop/' + shopId + '/products', { headers : { 'Authorization' : 'Bearer ' + accessToken}})
+    .pipe(
+      map((response) => {
+        return JSON.stringify(response);
+      })
+    )
+  }
+
+  /**
+   * Fetch the States and Cities stored in the DB via the api endpoint.
+   * @param countryCode : string
+   * @param accessToken : string
+   * @returns Observable
+   */
+  getStatesOrigin(countryCode : string, accessToken : string){
+    return this.http.get('http://127.0.0.1:8000/api/country/' + countryCode, { headers : {'Authorization' : 'Bearer ' + accessToken}})
+    .pipe(
+      map((response) => {
+        return JSON.stringify(response);
+      })
+    )
   }
 
   /**
@@ -52,11 +97,12 @@ export class ShopService {
    * @return Observable
    */
   deleteShop(shopId : number, accessToken : string, trash : boolean = false){
-      return this.http.post('http://127.0.0.1:8000/shop/delete/' + shopId, { shop : shopId, removeEntirely : trash}, { headers : {'Authorization' : 'Bearer ' + accessToken}})
+      return this.http.post('http://127.0.0.1:8000/api/shop/delete/' + shopId, { shop : shopId, removeEntirely : trash}, { headers : {'Authorization' : 'Bearer ' + accessToken}})
         .pipe(
           map((response) => {
             console.log(response);
           })
         )
   }
+
 }

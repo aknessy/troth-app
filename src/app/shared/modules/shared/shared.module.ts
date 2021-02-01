@@ -5,10 +5,12 @@ import { CommonModule } from '@angular/common';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MatButtonModule } from '@angular/material/button';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { ModuleLoadingComponent } from '../../components/module-loading/module-loading.component';
 
 @NgModule({
   declarations: [
     BtnLoaderComponent,
+    ModuleLoadingComponent
   ],
   imports: [
     CommonModule,
@@ -19,6 +21,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
   ],
   exports : [
     BtnLoaderComponent,
+    ModuleLoadingComponent
   ]
 })
 export class SharedModule { }

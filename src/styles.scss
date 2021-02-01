@@ -88,6 +88,19 @@ body {
     color: #e7edf7;
 }
 
+.toolbar{
+    background-color: rgb(29, 38, 54);
+    background-image: linear-gradient(to right, rgba(13, 230, 255, 0.15) 0%, rgba(201, 189, 174, 0) 25%);
+    box-shadow: 1px 2px 1px 2px rgba(0,0,0,0.15);
+    position: sticky;
+    display: flex;
+    width: 100%;
+    top: -2px;
+    font-family: "Nunito", sans-serif;
+    padding: 1rem .8rem;
+    z-index: 999999;
+}
+
 .content-body{
     display: flex;
     background-color:#1d2636;
@@ -106,4 +119,61 @@ body {
 .table thead th{  
     text-transform: uppercase;
     border-bottom-color: #18202e;
+}
+
+.module-loading-container{
+    background-color:rgba(12, 15, 22, 0.78);
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999999;
+}
+
+.alert-custom{
+    padding: .45rem;
+    border: 1px solid transparent;
+}
+
+.alert-custom.alert-info{
+    background-color: #2ecfca;
+    border-color: #23b3ae
+}
+
+.input-control {
+    background-color: rgb(15, 19, 27);
+    border: 1px solid rgb(12, 15, 22);
+    outline: none;
+    font-family: "Nunito", sans-serif;
+    padding: 1rem .8rem;
+    color: #ccd3df
+}
+
+.input-control:focus{
+    outline: none;
+    color: #ccd3df;
+    box-shadow: none;
+    background-color: rgb(15, 19, 27);
+    border: 1px solid rgb(12, 15, 22);
+}
+
+.form .control-label{
+    color: #849ec2;
+}
+
+.fieldset{
+    border: 1px solid #b0b9c9;
+    padding: 1.2rem 1.4rem;
+}
+
+.fieldset > legend{
+    color: #ccd3df;
+    font-size: 12px;
+    font-weight: normal;
+    text-transform: uppercase;
+    margin-bottom: 0px;
 }

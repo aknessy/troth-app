@@ -1,0 +1,16 @@
+.animation-loading{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    font-family: "Nunito", sans-serif;
+    align-items: center;
+    justify-content: center;
+}
+
+.animation-loading p{
+    position: absolute;
+    top: -10px;
+    font-size: 13px;
+    margin: 0 10px 0 0;
+    width: 100%
+}

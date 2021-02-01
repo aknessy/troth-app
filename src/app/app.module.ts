@@ -1,4 +1,4 @@
-import { AuthGuard } from './services/auth-guard.service';
+import { AuthGuard } from './services/auth/auth-guard.service';
 import { SharedModule } from '../app/shared/modules/shared/shared.module';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
@@ -12,7 +12,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { AuthService } from './services/auth/auth.service';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
-import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
 import { LayoutsModule } from './views/admin/layouts.module';
 
 @NgModule({

@@ -1,0 +1,158 @@
+.shop-view-wrapper{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.shop-view-wrapper.view-with-bg{
+    padding: 28px 483px 20px 28px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    background-position: right top;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.bg-automotives{
+    background-color: #1d2636;
+    border: 1px solid #161e2b;
+    min-height: 340px;
+    align-content: flex-start;
+}
+
+.bg-automotives::before{
+    content: "";
+    position: absolute;
+    background-image: url('/assets/imgs/automotive-spare-parts.png');
+    width: 478px !important;
+    height: 421px;
+    background-repeat: no-repeat;
+    right: 0px;
+    top: -30px;
+}
+
+.shop-view-wrapper p{
+    text-align: justify;
+}
+
+.shop-view-wrapper.view-with-bg p{
+    font-size: 16px;
+    line-height: 26px;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+}
+
+.shop-view-wrapper p{
+    color: #e7edf7;
+    font-size: 16px;
+    line-height: 18px;
+    font-size: small;
+}
+
+.jumbo-header{
+    color: #11ece5;
+    padding-bottom: 10px;
+    text-transform: capitalize;
+    font-weight: 700;
+    font-size: 36px;
+    margin-bottom: 13px;
+}
+
+.card-wrapper{
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: .56rem .36rem; 
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.card-wrapper .card-content{
+    background-color: #17b3ad;
+    border: 1px solid #179691;
+    border-radius: 6px;
+    box-shadow: 8px 5px 2px 3px rgba(0,0,0,0.15);
+}
+
+.card-wrapper .card-item,
+.card-wrapper .card-footer{
+    display: flex;
+    align-items: center;
+    padding: .13rem .82rem;
+}
+
+.card-wrapper .card-footer{
+    padding: .3rem 0;
+}
+
+.card-wrapper .card-footer .text{
+    margin: 0;
+    padding: .32rem 1.42rem;
+    font-size: 12px;
+}
+
+.card-item .item-number{
+    font-size: 22px;
+    font-weight: bold;
+    padding: .56rem;
+}
+
+.card-item .item-icon{
+    font-weight: normal;
+    text-align: right;
+}
+
+.card-item .item-number,
+.card-item .item-text,
+.card-item .item-icon,
+.card-footer p
+{
+    color:#24666e;
+    padding: .32rem
+}
+
+.card-item.item-number{
+    font-size: 22px;
+}
+
+.card-item .item-icon{
+    margin-left: .23rem;
+    padding-left: 1rem;
+    border-left: 1px solid#20a09c;
+}
+
+.editor-form{
+    background-color: #1d2636;
+    padding: 0rem
+}
+
+.editor-form .panel{
+    position: relative;
+}
+
+.editor-form .panel .panel-heading{
+    background-color: rgb(52, 76, 109) !important;
+    color: #849ec2;
+}
+
+.editor-form .panel .panel-heading .panel-title{
+    padding: .64rem .88rem;
+    text-transform: capitalize;
+}
+
+.editor-form .panel .panel-content{
+    padding: 1.43rem
+}
+
+select.input-control{
+    color: #ccd3df;
+}
+
+select.input-control > option:hover{
+    background-color: orange
+}
+
+.check-margin {
+    margin: 0 10px;
+  }
